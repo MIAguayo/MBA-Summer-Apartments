@@ -17,6 +17,39 @@ class ApartmentsController < ApplicationController
     render({ :template => "apartments/show.html.erb" })
   end
 
+  def new_apartment
+
+    #my_city = params.fetch("query_city_name")
+    @list_of_cities = City.all.order({ :name => :asc })
+    render({ :template => "apartments/new_apartment.html.erb" })
+
+  end
+
+  def choose_city
+
+    my_city = params.fetch("city")
+
+    @list_of_cities = City.all.order({ :name => :asc })
+
+    render({ :template => "apartments/new_apartment_details.html.erb" })
+
+    if my_city == nil 
+      #render({ :template => "apartments/new_apartment.html.erb" })
+      #redirect_to("/apartments/new_apartment", { :alert => "No city selected" })
+    else
+      #redirect_to("/apartments/new_apartment_details", { :alert => "No city selected" })
+    end
+    #render({ :template => "apartments/test.html.erb" })
+
+  end
+
+  def details
+    
+    my_city = params.fetch("city")
+
+  end
+
+
   def create
     the_apartment = Apartment.new
     the_apartment.city_id = params.fetch("query_city_id")

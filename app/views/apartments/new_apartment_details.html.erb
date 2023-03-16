@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      New apartment in <%= params.fetch("city") %>
+      <%=City.where({:city_name =>params.fetch("city")}).inspect%>
+
+
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Please add apartment details
+    </h2>
+
+    <form action="/insert_apartment" method="post">
+      <div>
+        <label for="city_id_box">
+          City ID
+        </label>
+
+        <input type="text" id="city_id_box" name="query_city_id" value="<%=City.where({:city_name =>params.fetch("city")})%>">
+
+        <% city = City.where(city_name: params.fetch("city")).first %>
+
+        <input type="text" id="city_id_box" name="query_city_id" value="<%= city.id%>">
+      </div>
+
+      <div>
+        <label for="city_name_box">
+          City name
+        </label>
+
+        <input type="text" id="city_name_box" name="query_city_name" value="<%=params.fetch("city")%>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="from_date_box">
+          From date
+        </label>
+
+        <input type="date" id="from_date_box" name="query_from_date">
+      </div>
+
+      <div>
+        <label for="to_date_box">
+          To date
+        </label>
+
+        <input type="date" id="to_date_box" name="query_to_date">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price">
+      </div>
+
+      <div>
+        <input type="checkbox" id="utilities_included_box" name="query_utilities_included" value="1">
+
+        <label for="utilities_included_box">Utilities included</label>
+      </div>
+
+      <div>
+        <label for="bedrooms_box">
+          Bedrooms
+        </label>
+
+        <input type="text" id="bedrooms_box" name="query_bedrooms">
+      </div>
+
+      <div>
+        <label for="bathrooms_box">
+          Bathrooms
+        </label>
+
+        <input type="text" id="bathrooms_box" name="query_bathrooms">
+      </div>
+
+      <div>
+        <input type="checkbox" id="pet_friendly_box" name="query_pet_friendly" value="1">
+
+        <label for="pet_friendly_box">Pet friendly</label>
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="owner_name_box">
+          Owner name
+        </label>
+
+        <input type="text" id="owner_name_box" name="query_owner_name">
+      </div>
+
+      <div>
+        <label for="owner_email_box">
+          Owner email
+        </label>
+
+        <input type="text" id="owner_email_box" name="query_owner_email">
+      </div>
+
+      <button>
+        Create apartment
+      </button>
+    </form>
+  </div>
+</div>

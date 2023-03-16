@@ -10,4 +10,9 @@
 #  apartment_id :integer
 #
 class Photo < ApplicationRecord
+  belongs_to(:apartment_photos, {
+    :class_name => "Apartment",
+    :foreign_key => "apartment_id",
+    :required => true
+  })
 end

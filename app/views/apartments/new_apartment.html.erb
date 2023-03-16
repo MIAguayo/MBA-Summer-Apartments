@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <h1>
+      Where is your apartment located?
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+
+
+
+
+    <form action="/choose_city" method="post">
+      <div>
+        <label for="city_select">
+          Choose your city:
+        </label>
+
+        <select name="city" id="city_select" name="query_city_name">
+          <option value="">-- Please choose a city --</option>
+            <% @list_of_cities.each do |city| %>
+              <option value="<%= city.city_name %>"><%= city.city_name%></option>
+            <% end %>
+        </select>
+        
+      </div>
+
+      <button>
+        Next
+      </button>
+    </form>
+  </div>
+</div>
+
+
+<hr>

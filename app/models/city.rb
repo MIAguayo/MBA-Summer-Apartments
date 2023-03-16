@@ -9,4 +9,9 @@
 #  updated_at :datetime         not null
 #
 class City < ApplicationRecord
+
+  has_many(:apartments, {
+    :foreign_key => "city_id"
+  })
+
 end

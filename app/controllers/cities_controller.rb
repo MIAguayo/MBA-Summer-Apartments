@@ -1,4 +1,14 @@
 class CitiesController < ApplicationController
+  
+  def home
+    matching_cities = City.all
+
+    @list_of_cities = matching_cities.order({ :created_at => :desc })
+
+    render({ :template => "cities/home.html.erb" })
+  end
+
+
   def index
     matching_cities = City.all
 
