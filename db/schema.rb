@@ -10,6 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_03_16_184226) do
+
+  create_table "apartments", force: :cascade do |t|
+    t.integer "city_id"
+    t.string "city_name"
+    t.string "address"
+    t.string "status"
+    t.date "from_date"
+    t.date "to_date"
+    t.integer "price"
+    t.boolean "utilities_included"
+    t.integer "bedrooms"
+    t.integer "bathrooms"
+    t.boolean "pet_friendly"
+    t.text "description"
+    t.integer "owner_id"
+    t.string "owner_name"
+    t.string "owner_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name"
+    t.string "city_state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "caption"
+    t.string "photo_url"
+    t.integer "apartment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

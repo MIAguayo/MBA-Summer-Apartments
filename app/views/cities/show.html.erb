@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      City #<%= @the_city.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/cities">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_city/<%= @the_city.id %>">
+          Delete city
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        City name
+      </dt>
+      <dd>
+        <%= @the_city.city_name %>
+      </dd>
+
+      <dt>
+        City state
+      </dt>
+      <dd>
+        <%= @the_city.city_state %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_city.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_city.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit city
+    </h2>
+
+    <form action="/modify_city/<%= @the_city.id %>"  method="post" >
+      <div>
+        <label for="city_name_box">
+          City name
+        </label>
+
+        <input type="text" id="city_name_box" name="query_city_name" value="<%= @the_city.city_name %>">
+      </div>
+
+      <div>
+        <label for="city_state_box">
+          City state
+        </label>
+
+        <input type="text" id="city_state_box" name="query_city_state" value="<%= @the_city.city_state %>">
+      </div>
+
+      <button>
+        Update city
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

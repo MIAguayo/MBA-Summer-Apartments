@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all cities
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new city
+    </h2>
+
+    <form action="/insert_city" method="post">
+      <div>
+        <label for="city_name_box">
+          City name
+        </label>
+
+        <input type="text" id="city_name_box" name="query_city_name">
+      </div>
+
+      <div>
+        <label for="city_state_box">
+          City state
+        </label>
+
+        <input type="text" id="city_state_box" name="query_city_state">
+      </div>
+
+      <button>
+        Create city
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          City name
+        </th>
+
+        <th>
+          City state
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_cities.each do |a_city| %>
+      <tr>
+        <td>
+          <%= a_city.id %>
+        </td>
+
+        <td>
+          <%= a_city.city_name %>
+        </td>
+
+        <td>
+          <%= a_city.city_state %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_city.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_city.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/cities/<%= a_city.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
