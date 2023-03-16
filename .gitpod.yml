@@ -1,0 +1,14 @@
+image: jelaniwoods/appdev2021-base-rails-hotfix
+tasks:
+  - command: bundle install
+  - init: bin/setup
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+
+vscode:
+  extensions:
+    - shd101wyy.markdown-preview-enhanced
+    - wingrunr21.vscode-ruby
+    - vortizhe.simple-ruby-erb
