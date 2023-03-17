@@ -13,7 +13,6 @@
 #  owner_name         :string
 #  pet_friendly       :boolean
 #  price              :integer
-#  status             :string
 #  to_date            :date
 #  utilities_included :boolean
 #  created_at         :datetime         not null

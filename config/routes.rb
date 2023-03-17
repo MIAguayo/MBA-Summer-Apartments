@@ -81,12 +81,12 @@ Rails.application.routes.draw do
 
   # CREATE
   get("/new_apartment", { :controller => "apartments", :action => "new_apartment" })
-  
-  get("apartment/new_apartment_details", { :controller => "apartments", :action => "details" })
 
   post("/choose_city", { :controller => "apartments", :action => "choose_city" })
+
+  get("apartment/new_apartment_details", { :controller => "apartments", :action => "details" })
   
-  #post("/insert_apartment", { :controller => "apartments", :action => "create" })
+  post("/insert_apartment", { :controller => "apartments", :action => "create" })
           
   # READ
   get("/apartments", { :controller => "apartments", :action => "index" })

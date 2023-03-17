@@ -40,14 +40,6 @@
       </div>
 
       <div>
-        <label for="status_box">
-          Status
-        </label>
-
-        <input type="text" id="status_box" name="query_status">
-      </div>
-
-      <div>
         <label for="from_date_box">
           From date
         </label>
@@ -148,19 +140,11 @@
         </th>
 
         <th>
-          City
-        </th>
-
-        <th>
-          City name
+          City 
         </th>
 
         <th>
           Address
-        </th>
-
-        <th>
-          Status
         </th>
 
         <th>
@@ -226,19 +210,11 @@
         </td>
 
         <td>
-          <%= an_apartment.city_id %>
-        </td>
-
-        <td>
           <%= an_apartment.city_name %>
         </td>
 
         <td>
           <%= an_apartment.address %>
-        </td>
-
-        <td>
-          <%= an_apartment.status %>
         </td>
 
         <td>
@@ -254,7 +230,12 @@
         </td>
 
         <td>
-          <%= an_apartment.utilities_included %>
+          <%if an_apartment.utilities_included == true %>
+            yes
+          <% else %>
+            no
+          <%end%> 
+
         </td>
 
         <td>
@@ -266,7 +247,11 @@
         </td>
 
         <td>
-          <%= an_apartment.pet_friendly %>
+          <%if an_apartment.pet_friendly == true %>
+            yes
+          <% else %>
+            no
+          <%end%> 
         </td>
 
         <td>

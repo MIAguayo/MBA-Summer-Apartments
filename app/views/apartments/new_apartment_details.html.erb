@@ -1,10 +1,11 @@
+<% city = City.where(city_name: params.fetch("city")).first %>
+<% user = User.where(id: session.fetch(:user_id)).first %>
+
+
 <div>
   <div>
     <h1>
-      New apartment in <%= params.fetch("city") %>
-      <%=City.where({:city_name =>params.fetch("city")}).inspect%>
-
-
+      New apartment in <%= city.city_name %>
     </h1>
   </div>
 </div>
@@ -22,8 +23,6 @@
         <label for="city_id_box">
           City ID
         </label>
-
-        <input type="text" id="city_id_box" name="query_city_id" value="<%=City.where({:city_name =>params.fetch("city")})%>">
 
         <% city = City.where(city_name: params.fetch("city")).first %>
 
@@ -44,14 +43,6 @@
         </label>
 
         <input type="text" id="address_box" name="query_address">
-      </div>
-
-      <div>
-        <label for="status_box">
-          Status
-        </label>
-
-        <input type="text" id="status_box" name="query_status">
       </div>
 
       <div>
@@ -119,7 +110,7 @@
           Owner
         </label>
 
-        <input type="text" id="owner_id_box" name="query_owner_id">
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%=session.fetch(:user_id)%>">
       </div>
 
       <div>
@@ -127,7 +118,7 @@
           Owner name
         </label>
 
-        <input type="text" id="owner_name_box" name="query_owner_name">
+        <input type="text" id="owner_name_box" name="query_owner_name" value="<%=user.first_name + " " + user.last_name%>">
       </div>
 
       <div>
@@ -135,7 +126,7 @@
           Owner email
         </label>
 
-        <input type="text" id="owner_email_box" name="query_owner_email">
+        <input type="text" id="owner_email_box" name="query_owner_email" value="<%=user.email%>">
       </div>
 
       <button>
