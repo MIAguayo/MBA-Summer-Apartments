@@ -16,32 +16,25 @@
   </head>
 
   <body>
-  <ul>
-      <li>
-        <a href="/"> Home </a>
-      </li>
-      <li>
-        <a href="/apartments"> List of all apartments </a>
-      </li>
-      <li>
-        <a href="/cities"> View apartments per city </a>
-      </li>
+
+<a href="/"> Home </a>
+<br>
+<a href="/apartments"> View all apartments </a>
+<br>
+<a href="/cities"> View apartments per city </a>
 
 
-      <% if session.fetch(:user_id) == nil %>
-        <li>
-          <a href="/user_sign_up"> Sign Up </a>
-        </li>
-        <li>
-          <a href="/user_sign_in"> Sign In </a>
-        </li>
-      <%else%>
-        <li>
-          <a href="/user_sign_out"> Sign Out </a>
-        </li>
-      <%end%>
+<% if session.fetch(:user_id) == nil %>
+  <br>
+  <a href="/user_sign_up"> Sign Up </a>
+  <br>
+  <a href="/user_sign_in"> Sign In </a>
+  <br>
+<%else%>
+  <br>
+  <a href="/user_sign_out"> Sign Out </a>
+<%end%>
 
-    </ul>
 
     <%= yield %>
   </body>
