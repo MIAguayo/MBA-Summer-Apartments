@@ -21,10 +21,12 @@
 #  owner_id           :integer
 #
 class Apartment < ApplicationRecord
-  belongs_to(:city)
+  belongs_to :owner, required: true, class_name: "User", foreign_key: "owner_id"
 
-  has_many(:apartment_photos, {
-    :foreign_key => "apartment_id"
-  })
+  has_many  :photos, class_name: "Photo", foreign_key: "apartment_id", dependent: :destroy
+
+  has_many  :bookmarks, class_name: "Bookmark", foreign_key: "apartment_id", dependent: :destroy
+  
+  belongs_to :city, required: true, class_name: "City", foreign_key: "city_id"
 
 end

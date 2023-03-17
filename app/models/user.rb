@@ -15,10 +15,10 @@ class User < ApplicationRecord
   validates :email, :presence => true
   has_secure_password
 
-  has_many(:apartments, {
-    :foreign_key => "owner_id"
-  })
-  
-  has_many :bookmarks
+  has_many  :apartments, class_name: "Apartment", foreign_key: "owner_id", dependent: :destroy
+  has_many  :bookmarks, class_name: "Bookmark", foreign_key: "user_id", dependent: :destroy
 
+  has_many :bookmarked_apartments, through: :bookmarks, source: :apartment
+
+  
 end

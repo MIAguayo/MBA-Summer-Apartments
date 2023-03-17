@@ -73,7 +73,8 @@ class ApartmentsController < ApplicationController
 
     if the_apartment.valid?
       the_apartment.save
-      redirect_to("/apartments", { :notice => "Apartment created successfully." })
+      redirect_to("/apartments/#{the_apartment.id}", { :notice => "Apartment created successfully." })
+
     else
       redirect_to("/apartments", { :alert => the_apartment.errors.full_messages.to_sentence })
     end

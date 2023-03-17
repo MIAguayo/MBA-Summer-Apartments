@@ -9,6 +9,6 @@
 #  user_id      :integer
 #
 class Bookmark < ApplicationRecord
-  belongs_to :user, :required => true
-  belongs_to :apartment, :required => true
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
+  belongs_to :apartment, required: true, class_name: "Apartment", foreign_key: "apartment_id"
 end

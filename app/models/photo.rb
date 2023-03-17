@@ -15,4 +15,5 @@ class Photo < ApplicationRecord
     :foreign_key => "apartment_id",
     :required => true
   })
+  
 end

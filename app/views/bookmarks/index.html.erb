@@ -64,11 +64,19 @@
         </th>
 
         <th>
+          City
+        </th>
+
+        <th>
           Address
         </th>
 
         <th>
           Price
+        </th>
+
+        <th>
+          Owner
         </th>
 
         <th>
@@ -83,8 +91,12 @@
           Updated at
         </th>
 
+        <% if false%>
         <th>
+        
         </th>
+        <% end %>
+
       </tr>
 
 
@@ -114,12 +126,22 @@
 
         <td>
           <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
+          <%= apartment.city_name %>        
+        </td>
+
+        <td>
+          <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
           <%= apartment.address %>        
         </td>
 
         <td>
           <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
           <%= apartment.price %>        
+        </td>
+
+        <td>
+          <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
+          <%= apartment.owner_name %>
         </td>
 
         <td>
@@ -133,12 +155,14 @@
         <td>
           <%= time_ago_in_words(a_bookmark.updated_at) %> ago
         </td>
-
+        <% if false %>
         <td>
           <a href="/bookmarks/<%= a_bookmark.id %>">
             Show bookmark details
           </a>
         </td>
+        <% end %>
+
       </tr>
       <% else %>
       <% end %>
