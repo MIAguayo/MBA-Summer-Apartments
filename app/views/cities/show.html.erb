@@ -1,9 +1,3 @@
-<div>
-  <div>
-    <h1>
-      Apartments in <%= @the_city.city_name %> 
-    </h1>
-
     <div>
       <div>
         <a href="/cities">
@@ -11,78 +5,174 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_city/<%= @the_city.id %>">
-          Delete city
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        City name
-      </dt>
-      <dd>
-        <%= @the_city.city_name %>
-      </dd>
-
-      <dt>
-        City state
-      </dt>
-      <dd>
-        <%= @the_city.city_state %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_city.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_city.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-<% if false %>
-
 <div>
   <div>
-    <h2>
-      Edit city
-    </h2>
+    <h1>
+      Apartments in <%= @the_city.city_name + ", " + @the_city.city_state %> 
+    </h1>
+    <h3>
+      Click "Show Details" for pictures
+    </h3>
 
-    <form action="/modify_city/<%= @the_city.id %>"  method="post" >
-      <div>
-        <label for="city_name_box">
-          City name
-        </label>
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
 
-        <input type="text" id="city_name_box" name="query_city_name" value="<%= @the_city.city_name %>">
-      </div>
+        <th>
+          City 
+        </th>
 
-      <div>
-        <label for="city_state_box">
-          City state
-        </label>
+        <th>
+          Address
+        </th>
 
-        <input type="text" id="city_state_box" name="query_city_state" value="<%= @the_city.city_state %>">
-      </div>
+        <th>
+          From date
+        </th>
 
-      <button>
-        Update city
-      </button>
-    </form>
+        <th>
+          To date
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Utilities included
+        </th>
+
+        <th>
+          Bedrooms
+        </th>
+
+        <th>
+          Bathrooms
+        </th>
+
+        <th>
+          Pet friendly
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Owner name
+        </th>
+
+        <th>
+          Owner email
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_apartments.each do |an_apartment| %>
+      <% if an_apartment.city_name == @the_city.city_name%>
+      <tr>
+        <td>
+          <%= an_apartment.id %>
+        </td>
+
+        <td>
+          <%= an_apartment.city_name %>
+        </td>
+
+        <td>
+          <%= an_apartment.address %>
+        </td>
+
+        <td>
+          <%= an_apartment.from_date %>
+        </td>
+
+        <td>
+          <%= an_apartment.to_date %>
+        </td>
+
+        <td>
+          <%= an_apartment.price %>
+        </td>
+
+        <td>
+          <%if an_apartment.utilities_included == true %>
+            yes
+          <% else %>
+            no
+          <%end%> 
+
+        </td>
+
+        <td>
+          <%= an_apartment.bedrooms %>
+        </td>
+
+        <td>
+          <%= an_apartment.bathrooms %>
+        </td>
+
+        <td>
+          <%if an_apartment.pet_friendly == true %>
+            yes
+          <% else %>
+            no
+          <%end%> 
+        </td>
+
+        <td>
+          <%= an_apartment.description %>
+        </td>
+
+        <td>
+          <%= an_apartment.owner_id %>
+        </td>
+
+        <td>
+          <%= an_apartment.owner_name %>
+        </td>
+
+        <td>
+          <%= an_apartment.owner_email %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_apartment.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_apartment.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/apartments/<%= an_apartment.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% else %>
+      <% end %>
+      <% end %>
+    </table>
   </div>
 </div>
 
 <hr>
-<% end %>

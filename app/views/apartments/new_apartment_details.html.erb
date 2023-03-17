@@ -1,6 +1,11 @@
 <% city = City.where(city_name: params.fetch("city")).first %>
 <% user = User.where(id: session.fetch(:user_id)).first %>
 
+<div>
+  <a href="/new_apartment">
+    Go back
+    </a>
+</div>
 
 <div>
   <div>

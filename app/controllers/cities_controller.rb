@@ -24,6 +24,10 @@ class CitiesController < ApplicationController
 
     @the_city = matching_cities.at(0)
 
+    matching_apartments = Apartment.all
+
+    @list_of_apartments = matching_apartments.order({ :created_at => :desc })
+
     render({ :template => "cities/show.html.erb" })
   end
 

@@ -1,4 +1,10 @@
 <div>
+  <a href="/">
+    Go back
+    </a>
+</div>
+
+<div>
   <div>
     <h1>
       List of all cities
@@ -55,16 +61,7 @@
           City state
         </th>
 
-        <th>
-          Created at
-        </th>
 
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_cities.each do |a_city| %>
@@ -82,15 +79,8 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_city.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_city.updated_at) %> ago
-        </td>
-
-        <td>
           <a href="/cities/<%= a_city.id %>">
-            Show details
+            Show apartments
           </a>
         </td>
       </tr>

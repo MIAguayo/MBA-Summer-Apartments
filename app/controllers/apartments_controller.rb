@@ -14,6 +14,10 @@ class ApartmentsController < ApplicationController
 
     @the_apartment = matching_apartments.at(0)
 
+    matching_photos = Photo.all
+
+    @list_of_photos = matching_photos.order({ :created_at => :desc })
+
     render({ :template => "apartments/show.html.erb" })
   end
 

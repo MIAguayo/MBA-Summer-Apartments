@@ -1,15 +1,14 @@
 <div>
+  <a href="/apartments/<%= @the_photo.apartment_id%>">   
+    Go back
+  </a>
+</div>
+      
+<div>
   <div>
     <h1>
       Photo #<%= @the_photo.id %> details
     </h1>
-
-    <div>
-      <div>
-        <a href="/photos">
-          Go back
-        </a>
-      </div>
 
       <div>
         <a href="/delete_photo/<%= @the_photo.id %>">
@@ -30,7 +29,7 @@
         Photo url
       </dt>
       <dd>
-        <%= @the_photo.photo_url %>
+        <img src="<%= @the_photo.photo_url %>">
       </dd>
 
       <dt>
