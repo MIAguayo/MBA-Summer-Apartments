@@ -4,16 +4,195 @@
     Go back
     </a>
 </div>
-
-<div>
   <div>
     <h1>
-      List of all apartments
+      Apartments
     </h1>
   </div>
-</div>
+  <hr>
+<br>
+<%# MY APARTMENTS%>
+  <div>
+    <h2>
+      My listed apartments
+    </h2>
+  </div>
+
+<%# removed capability to add apartment from "All Apartments" because I needed users to select city first in order to automatically populate city_id%>
 
 <hr>
+<div>
+<% @list_of_apartments.each do |an_apartment| %>
+  <%if session.fetch(:user_id) == an_apartment.owner_id %>
+    <div>
+      <table border="1">
+        <tr>
+          <th>
+            ID
+          </th>
+
+          <th>
+            City 
+          </th>
+
+          <th>
+            Address
+          </th>
+
+          <th>
+            From date
+          </th>
+
+          <th>
+            To date
+          </th>
+
+          <th>
+            Price
+          </th>
+
+         <th>
+            Utilities included
+         </th>
+
+          <th>
+            Bedrooms
+          </th>
+
+          <th>
+            Bathrooms
+          </th>
+
+          <th>
+            Pet friendly
+          </th>
+
+          <th>
+            Description
+          </th>
+
+          <th>
+            Owner
+          </th>
+
+          <th>
+            Owner name
+          </th>
+
+          <th>
+            Owner email
+          </th>
+
+          <th>
+            Created at
+          </th>
+
+          <th>
+            Updated at
+          </th>
+
+          <th>
+          </th>
+        </tr>
+
+        <tr>
+          <td>
+            <%= an_apartment.id %>
+          </td>
+
+          <td>
+            <%= an_apartment.city_name %>
+          </td>
+
+          <td>
+            <%= an_apartment.address %>
+          </td>
+
+          <td>
+            <%= an_apartment.from_date %>
+          </td>
+
+          <td>
+            <%= an_apartment.to_date %>
+          </td>
+
+          <td>
+            <%= an_apartment.price %>
+          </td>
+
+          <td>
+            <%if an_apartment.utilities_included == true %>
+              yes
+            <% else %>
+              no
+            <%end%> 
+
+          </td>
+
+          <td>
+            <%= an_apartment.bedrooms %>
+          </td>
+
+          <td>
+            <%= an_apartment.bathrooms %>
+          </td>
+
+          <td>
+            <%if an_apartment.pet_friendly == true %>
+              yes
+            <% else %>
+              no
+            <%end%> 
+          </td>
+
+          <td>
+            <%= an_apartment.description %>
+          </td>
+
+          <td>
+            <%= an_apartment.owner_id %>
+          </td>
+
+          <td>
+            <%= an_apartment.owner_name %>
+          </td>
+
+          <td>
+            <%= an_apartment.owner_email %>
+          </td>
+
+          <td>
+            <%= time_ago_in_words(an_apartment.created_at) %> ago
+          </td>
+
+          <td>
+            <%= time_ago_in_words(an_apartment.updated_at) %> ago
+          </td>
+
+          <td>
+            <a href="/apartments/<%= an_apartment.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
+      </table>
+  <% else %>
+  <% end %>
+  </div>
+  </div>
+<% end %>
+<hr>
+
+
+
+<br>
+<br>
+<%# ALL APARTMENTS%>
+  <div>
+    <h2>
+      List of all apartments
+    </h2>
+  </div>
 
 <%# removed capability to add apartment from "All Apartments" because I needed users to select city first in order to automatically populate city_id%>
 

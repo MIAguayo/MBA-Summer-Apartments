@@ -9,4 +9,6 @@
 #  user_id      :integer
 #
 class Bookmark < ApplicationRecord
+  belongs_to :user, :required => true
+  belongs_to :apartment, :required => true
 end

@@ -22,7 +22,7 @@
 <a href="/apartments"> View all apartments </a>
 <br>
 <a href="/cities"> View apartments per city </a>
-
+<br>
 
 <% if session.fetch(:user_id) == nil %>
   <br>
@@ -31,8 +31,9 @@
   <a href="/user_sign_in"> Sign In </a>
   <br>
 <%else%>
+  <a href="/new_apartment"> List new apartment </a>
   <br>
-  <a href="/bookmarks"> Bookmarks </a>
+  <a href="/bookmarks"> My Bookmarks </a>
   <br>
   <a href="/user_sign_out"> Sign Out </a>
 <%end%>

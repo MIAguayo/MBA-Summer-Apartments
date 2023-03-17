@@ -1,13 +1,15 @@
 <div>
   <div>
     <h1>
-      List of all bookmarks
+      My Bookmarks
     </h1>
   </div>
 </div>
 
 <hr>
 
+<%# "commented" out the option to add bookmarks from the bookmarks index page since they are apartment listings and the apartment names do not provide enough information. I purposely left this option out so users will just bookmark the apartments from the list or details pages %>
+<% if false %>
 <div>
   <div>
     <h2>
@@ -37,8 +39,10 @@
     </form>
   </div>
 </div>
+<% end %>
 
-<hr>
+
+
 <div>
   <div>
     <table border="1">
@@ -56,6 +60,22 @@
         </th>
 
         <th>
+          Apartment Details
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Contact Information
+        </th>
+
+        <th>
           Created at
         </th>
 
@@ -67,7 +87,11 @@
         </th>
       </tr>
 
+
+
       <% @list_of_bookmarks.each do |a_bookmark| %>
+      <%if session.fetch(:user_id) == a_bookmark.user_id %>
+
       <tr>
         <td>
           <%= a_bookmark.id %>
@@ -83,6 +107,27 @@
         </td>
 
         <td>
+          <a href="/apartments/<%= a_bookmark.apartment_id %>">
+            Show apartment details
+          </a>
+        </td>
+
+        <td>
+          <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
+          <%= apartment.address %>        
+        </td>
+
+        <td>
+          <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
+          <%= apartment.price %>        
+        </td>
+
+        <td>
+          <% apartment = Apartment.where(:id => a_bookmark.apartment_id).first %>
+          <%= apartment.owner_email %>
+        </td>
+
+        <td>
           <%= time_ago_in_words(a_bookmark.created_at) %> ago
         </td>
         <td>
@@ -91,10 +136,12 @@
 
         <td>
           <a href="/bookmarks/<%= a_bookmark.id %>">
-            Show details
+            Show bookmark details
           </a>
         </td>
       </tr>
+      <% else %>
+      <% end %>
       <% end %>
     </table>
   </div>

@@ -19,4 +19,6 @@ class User < ApplicationRecord
     :foreign_key => "owner_id"
   })
   
+  has_many :bookmarks
+
 end
