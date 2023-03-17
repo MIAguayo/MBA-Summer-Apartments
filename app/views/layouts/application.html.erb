@@ -32,9 +32,14 @@
   <br>
 <%else%>
   <br>
+  <a href="/bookmarks"> Bookmarks </a>
+  <br>
   <a href="/user_sign_out"> Sign Out </a>
 <%end%>
 
+<br>
+<p style="color: green"> <%= notice %> </p>
+<p style="color: red"> <%= alert %> </p>
 
     <%= yield %>
   </body>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_16_234423) do
+ActiveRecord::Schema.define(version: 2023_03_17_034645) do
 
   create_table "apartments", force: :cascade do |t|
     t.integer "city_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2023_03_16_234423) do
     t.integer "owner_id"
     t.string "owner_name"
     t.string "owner_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "apartment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

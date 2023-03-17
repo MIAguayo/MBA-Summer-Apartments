@@ -9,6 +9,24 @@
       Apartment #<%= @the_apartment.id %> details
     </h1>
 
+
+  <%#= Bookmark %>  
+
+      <form action="/insert_bookmark" method="post">
+      <div>
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= session.fetch(:user_id) %>">
+      </div>
+
+      <div>
+        <input type="hidden" id="apartment_id_box" name="query_apartment_id" value="<%= @the_apartment.id %>">
+      </div>
+
+      <button>
+        Bookmark this apartment!
+      </button>
+    </form>
+
+
     <div>
 
       <%if session.fetch(:user_id) == @the_apartment.owner_id %>
